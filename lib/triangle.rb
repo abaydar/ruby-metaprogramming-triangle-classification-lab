@@ -20,6 +20,7 @@ class Triangle
   def kind
     if invalid?
        raise TriangleError
+       puts error.message
     elsif side_one == side_two && side_two == side_three && side_one == side_three
         :equilateral
     elsif side_one == side_two || side_one == side_three || side_two == side_three
@@ -31,7 +32,9 @@ class Triangle
   #binding.pry
 
   class TriangleError < StandardError
-    "this triangle is invalid"
+    def message
+      "this triangle is invalid"
+    end
   end
 
 end
